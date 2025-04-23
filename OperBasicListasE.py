@@ -1,8 +1,9 @@
 # Programa de "Ejemplificando la creación de una lista enlazada simple"
 # Desarrollado por: Sara Zambrana y Alicia Estrada :)
-# Versión 1.0
+# Versión 1.1
 # 23.abril.2025
-
+from colorama import init, Fore
+init(autoreset=True)
 
 
 # Clase Nodo - representa un nodo de la lista
@@ -46,7 +47,7 @@ class ListaEnlazada:
                 actual = actual.siguiente
             actual.siguiente = nuevo
 
-    # Eliminar el primer nodo que contenga el valor
+    # Eliminar cierto elemento de la lista
     def eliminar(self, valor):
         actual = self.cabeza
         anterior = None
@@ -62,6 +63,13 @@ class ListaEnlazada:
             actual = actual.siguiente
 
         return False  # Valor no encontrado
+    # Eliminar el primer nodo de la lista (la cabeza)
+    def eliminar_primero(self):
+        if not self.esta_vacia():
+            eliminado = self.cabeza.valor
+            self.cabeza = self.cabeza.siguiente
+            return eliminado
+        return None
 
     # Método para buscar un valor en la lista
     def buscar(self, valor):
@@ -75,10 +83,10 @@ class ListaEnlazada:
     #Metodo para imprimir la lista
     def imprimir(self):
         if self.esta_vacia():  # Usar el método para verificar si la lista está vacía
-            print("La lista está vacía")
+            print(Fore.YELLOW+"\nLa lista está vacía.\n")
             return
         actual = self.cabeza
-        print("Lista enlazada:", end=" ")
+        print("\nLista enlazada:", end=" ")
         while actual:
             print(actual.valor, end=" -> ")
             actual = actual.siguiente
@@ -87,9 +95,9 @@ class ListaEnlazada:
     # Método para imprimir el ultimo valor de la lista   
     def imprimir_ultimo(self):
         if self.esta_vacia():  # Usar el método para verificar si la lista está vacía
-            print("La lista está vacía")
+            print(Fore.YELLOW+"\nLa lista está vacía.\n")
             return
         actual = self.cabeza
         while actual.siguiente:
             actual = actual.siguiente
-        print(f"El último valor de la lista es: {actual.valor}")
+        print(Fore.BLUE+f"\nEl último valor de la lista es: {actual.valor}")
