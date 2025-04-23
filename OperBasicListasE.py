@@ -72,14 +72,24 @@ class ListaEnlazada:
             actual = actual.siguiente
         return False
 
-    # Método que imprime los valores de la lista
+    #Metodo para imprimir la lista
     def imprimir(self):
-        actual = self.cabeza
-        if not actual:
+        if self.esta_vacia():  # Usar el método para verificar si la lista está vacía
             print("La lista está vacía")
             return
+        actual = self.cabeza
         print("Lista enlazada:", end=" ")
         while actual:
             print(actual.valor, end=" -> ")
             actual = actual.siguiente
         print("None")
+        
+    # Método para imprimir el ultimo valor de la lista   
+    def imprimir_ultimo(self):
+        if self.esta_vacia():  # Usar el método para verificar si la lista está vacía
+            print("La lista está vacía")
+            return
+        actual = self.cabeza
+        while actual.siguiente:
+            actual = actual.siguiente
+        print(f"El último valor de la lista es: {actual.valor}")
