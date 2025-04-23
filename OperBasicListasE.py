@@ -21,7 +21,17 @@ class ListaEnlazada:
         nuevo = Nodo(valor)
         nuevo.siguiente = self.cabeza
         self.cabeza = nuevo
-
+    
+    # Método que cuenta el número de nodos en la lista
+    def longitudLista(self):
+        contador = 0  # Inicializa el contador en 0
+        actual = self.cabeza  # Empieza desde la cabeza de la lista
+        while actual:  # Recorre la lista mientras haya nodos
+            contador += 1  # Incrementa el contador por cada nodo
+            actual = actual.siguiente  # Avanza al siguiente nodo
+        return contador  # Retorna el número total de nodos
+    
+    #Agregar método longitudLista() que cuente los nodos.
     # Insertar un nuevo valor al final de la lista
     def insertar(self, valor):
         nuevo = Nodo(valor)
