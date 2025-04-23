@@ -83,18 +83,3 @@ class ListaEnlazada:
             print(actual.valor, end=" -> ")
             actual = actual.siguiente
         print("None")
-"""Esta línea asegura que el siguiente bloque solo se ejecuta si el archivo se corre directamente, y no cuando es importado como módulo en otro archivo"""
-if __name__ == "__main__":
-    lista = ListaEnlazada()  #Creando el objeto lista
-    lista.insertar(10)
-    lista.insertar(20)
-    lista.insertar(30)
-    lista.insertar(40)
-    lista.imprimir()  # Lista: 10 -> 20 -> 30 -> 40 -> None
-    print("Buscando el valor 20", lista.buscar(20))  # True
-    print("Buscar el número 50?", lista.buscar(50))  # False
-    lista.eliminar(30)
-    lista.imprimir()  # Lista: 10 -> 20 -> 40 -> None
-    lista.eliminar(10)
-    lista.imprimir()  # Lista: 20 -> 40 -> None
-    lista.imprimir()  # Lista: 20 -> 40 -> None
