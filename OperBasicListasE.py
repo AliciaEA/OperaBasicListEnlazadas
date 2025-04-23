@@ -30,8 +30,11 @@ class ListaEnlazada:
             contador += 1  # Incrementa el contador por cada nodo
             actual = actual.siguiente  # Avanza al siguiente nodo
         return contador  # Retorna el número total de nodos
+        
+    # Método para determinar si la lista está vacía
+    def esta_vacia(self):
+        return self.cabeza is None  # Retorna True si la cabeza es None, False en caso contrario
     
-    #Agregar método longitudLista() que cuente los nodos.
     # Insertar un nuevo valor al final de la lista
     def insertar(self, valor):
         nuevo = Nodo(valor)
