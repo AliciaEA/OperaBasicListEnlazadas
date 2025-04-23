@@ -38,8 +38,8 @@ class ListaEnlazada:
     # Insertar un nuevo valor al final de la lista
     def insertar(self, valor):
         nuevo = Nodo(valor)
-        if not self.cabeza:
-            self.cabeza = nuevo
+        if self.esta_vacia():  # Verifica si la lista está vacía usando el método esta_vacia
+            self.cabeza = nuevo  # Si está vacía, el nuevo nodo se convierte en la cabeza
         else:
             actual = self.cabeza
             while actual.siguiente:
